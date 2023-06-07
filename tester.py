@@ -1,7 +1,5 @@
 import openai
 import requests
-
-
 from password import *
 # Set up your OpenAI API credentials
 openai.api_key = api_key
@@ -38,18 +36,40 @@ def weather_data(city):
         global humidity
         global temperature
         global percipitation
+        #global type_precip
+        global cloud_cover
+        global wind_speed
 
         humidity = current['humidity']
         temperature = current['temperature']
         percipitation = current['precip']
+        #type_precip = current['precip_type'] - may not work for certain cities
+        cloud_cover = current['cloudcover']
+        wind_speed = current['wind_speed']
+        
+        return [humidity, temperature, percipitation, cloud_cover, wind_speed]
 
-weather_data('Brooklyn')
+
+        # Note for future, instead of saving these variables i made it a list so i can reutnr it to the mapp.py file and this will make organization much easier as I dont have to put this code on mapp.py
+"""""""""
+#weather_data('Brooklyn')
 
 print(humidity)
 print(temperature)
 print(percipitation)
+#print(type_precip)
+print(cloud_cover)
+print(wind_speed)
 
-print(f"Name one sport that you can play when the temperature is {temperature}, when the humidity is {humidity}% and when the percipitation is level is {percipitation}%")
+"""""
+"""""""""
 
-user_inputs(f"Name one unique sport that you can play when the temperature is {temperature}, when the humidity is {humidity}% and when the percipitation is level is {percipitation}%")
+print(f"Name one sport that you can play when the temperature is {temperature}, when the humidity is {humidity}% and when the percipitation is level is {percipitation}% and the type of percipitation is {type_precip} and finally when the percentage of clouds in the sky is {cloud_cover}")
 
+user_inputs(f"Name one sport that you can play when the temperature is {temperature}, when the humidity is {humidity}% and when the percipitation is level is {percipitation}% and the type of percipitation is {type_precip} and finally when the percentage of clouds in the sky is {cloud_cover}")
+
+"""""
+# ----- This works returns the correct variable
+#print(f"Name one sport that you can play when the temperature is {temperature}, when the humidity is {humidity}% and when the percipitation is level is {percipitation}% and finally when the percentage of clouds in the sky is {cloud_cover}")
+
+#user_inputs(f"Name one sport that you can play when the temperature is {temperature}, when the humidity is {humidity}% and when the percipitation is level is {percipitation}% and when the percentage of clouds in the sky is {cloud_cover} and finally when the wind speed is {wind_speed} miles per hour")
