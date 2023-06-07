@@ -23,12 +23,6 @@ def user_inputs(user_prompt):
     # Print the generated text
     print(generated_text)
 
-
-# Weatherstack API access key
-access_key = '91234ae12b43ace8043cc65157f076a3'
-
-
-
 def weather_data(city):
     # Make the API request
     url = f"http://api.weatherstack.com/current?access_key={access_key}&query={city}"
@@ -44,11 +38,6 @@ def weather_data(city):
         global humidity
         global temperature
         global percipitation
-
-        
-        #print(f"Humidity: {current['humidity']}%")
-        #print(f"Rain: {'Yes' if current['precip'] > 0 else 'No'}")
-        #print(f"Temperature: {current['temperature']}°C")
 
         humidity = current['humidity']
         temperature = current['temperature']
