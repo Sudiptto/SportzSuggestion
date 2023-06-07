@@ -6,6 +6,12 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash-message">{{ messages[0] }}</div>
+    {% endif %}
+{% endwith %}
+
     <div class="container">
         <h1 class="title">SportSuggestor</h1>
         <form action="/" method="post">

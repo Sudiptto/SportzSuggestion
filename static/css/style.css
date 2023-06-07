@@ -196,3 +196,43 @@ body {
     }
 }
 
+
+/* Flash ANIMATION */
+/* Add the following CSS to your existing styles.css file */
+
+.flash-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    opacity: 0.9;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: none;
+}
+
+.flash-content {
+    display: flex;
+    align-items: center;
+}
+
+.flash-icon {
+    margin-right: 10px;
+}
+
+.flash-message-success {
+    background-color: #28a745;
+}
+
+.flash-message-error {
+    background-color: #dc3545;
+}
+

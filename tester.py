@@ -19,7 +19,7 @@ def user_inputs(user_prompt):
     generated_text = response.choices[0].text.strip()
 
     # Print the generated text
-    print(generated_text)
+    return generated_text
 
 def weather_data(city):
     # Make the API request
