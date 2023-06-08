@@ -6,12 +6,18 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    
     {% with messages = get_flashed_messages() %}
     {% if messages %}
+        {% if messages[0] == 'Not a valid city'%}
+            <div class="flash-message-error">{{ messages[0] }}</div>
+        {% else %}
         <div class="flash-message">{{ messages[0] }}</div>
+        {% endif %}
     {% endif %}
-{% endwith %}
+{% endwith %} 
 
+    
     <div class="container">
         <h1 class="title">SportSuggestor</h1>
         <form action="/" method="post">

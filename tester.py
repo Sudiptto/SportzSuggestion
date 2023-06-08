@@ -28,7 +28,7 @@ def weather_data(city):
     data = response.json()
     # Check if the API request was successful
     if 'success' in data and not data['success']:
-        print(f"Error: {data['error']['info']}")
+        return ['None']
     else:
         # Extract and display weather information
         current = data['current']
