@@ -1,6 +1,9 @@
 import openai
 import requests
 from password import *
+
+
+
 # Set up your OpenAI API credentials
 openai.api_key = api_key
 
@@ -73,3 +76,12 @@ user_inputs(f"Name one sport that you can play when the temperature is {temperat
 #print(f"Name one sport that you can play when the temperature is {temperature}, when the humidity is {humidity}% and when the percipitation is level is {percipitation}% and finally when the percentage of clouds in the sky is {cloud_cover}")
 
 #user_inputs(f"Name one sport that you can play when the temperature is {temperature}, when the humidity is {humidity}% and when the percipitation is level is {percipitation}% and when the percentage of clouds in the sky is {cloud_cover} and finally when the wind speed is {wind_speed} miles per hour")
+
+
+
+# USE OPENAI AGAIN TO TURN COORDINATE DATA TO CITY DATA FOR TMRW
+
+
+
+
+

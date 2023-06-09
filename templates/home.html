@@ -27,8 +27,45 @@
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <br>
+                <button type="button" class="btn btn-secondary" onclick="retrieveLocation()">Retrieve Location Instead</button>
             </div>
         </form>
     </div>
+
+
+    <script>
+        function retrieveLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, handleError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            
+            alert(`Latitude: ${latitude.toFixed(2)}, Longitude: ${longitude.toFixed(2)}`);
+        }
+    
+        function handleError(error) {
+            let message = 'An error occurred while retrieving your location.';
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    message = 'Location permission denied.';
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    message = 'Location information is unavailable.';
+                    break;
+                case error.TIMEOUT:
+                    message = 'Location retrieval timed out.';
+                    break;
+            }
+            alert(message);
+        }
+    </script>
+
 </body>
 </html>
