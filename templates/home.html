@@ -16,10 +16,10 @@
         {% endif %}
     {% endif %}
 {% endwith %} 
-
     
     <div class="container">
         <h1 class="title">SportSuggestor</h1>
+        <h2>Latitude: {{ lat }}</h2>
         <form action="/" method="post">
             <div class="form-group">
                 <label for="city">Enter your city:</label>
@@ -47,7 +47,25 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             
+            /*
             alert(`Latitude: ${latitude.toFixed(2)}, Longitude: ${longitude.toFixed(2)}`);
+            alert(typeof(latitude));*/
+            
+
+            var geo_info = {
+                lat: latitude,
+                longitude: longitude
+            }; 
+
+            fetch ('/info', {
+                method : "POST",
+                credentials : 'include',
+                body : JSON.stringify(geo_info),
+                cache : "no-cache",
+                headers : new Headers ({
+                  "content-type" :"application/json"
+               })
+             })
         }
     
         function handleError(error) {
@@ -65,6 +83,28 @@
             }
             alert(message);
         }
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+        
+            fetch('/info', {
+                method: 'POST',
+                body: JSON.stringify({ 'lat': latitude }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const worked = data.worked;
+                alert(worked);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while retrieving your location.');
+            });
+        }
+        
     </script>
 
 </body>

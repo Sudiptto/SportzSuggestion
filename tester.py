@@ -81,7 +81,19 @@ user_inputs(f"Name one sport that you can play when the temperature is {temperat
 
 # USE OPENAI AGAIN TO TURN COORDINATE DATA TO CITY DATA FOR TMRW
 
+def find_city(user_prompt):
+    response = openai.Completion.create(
+        engine='text-davinci-003',  # Specify the model to use
+        prompt=user_prompt,
+        n=1,  # Limit to a single completion
+        max_tokens=10,  # Specify the maximum length of the generated text
+    )
 
+    # Get the generated text from the API response
+    generated_text = response.choices[0].text.strip()
+
+    # Print the generated text
+    return generated_text
 
 
 
