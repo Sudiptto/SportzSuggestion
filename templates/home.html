@@ -47,11 +47,11 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             
-            /*
-            alert(`Latitude: ${latitude.toFixed(2)}, Longitude: ${longitude.toFixed(2)}`);
-            alert(typeof(latitude));*/
             
-
+            //alert(`Latitude: ${latitude.toFixed(2)}, Longitude: ${longitude.toFixed(2)}`);
+            //alert(typeof(latitude));
+        
+            
             var geo_info = {
                 lat: latitude,
                 longitude: longitude
@@ -65,9 +65,9 @@
                 headers : new Headers ({
                   "content-type" :"application/json"
                })
-             })
-        }
-    
+             }) 
+        } 
+      
         function handleError(error) {
             let message = 'An error occurred while retrieving your location.';
             switch (error.code) {
@@ -83,13 +83,15 @@
             }
             alert(message);
         }
+
+        
         function showPosition(position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
         
             fetch('/info', {
                 method: 'POST',
-                body: JSON.stringify({ 'lat': latitude }),
+                body: JSON.stringify({ 'lat': latitude, 'longitude':longitude }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -102,9 +104,9 @@
             .catch(error => {
                 console.error('Error:', error);
                 alert('An error occurred while retrieving your location.');
-            });
-        }
-        
+            }); 
+        } 
+    
     </script>
 
 </body>

@@ -14,12 +14,12 @@ app.config['SECRET_KEY'] = os.environ.get('FLASK_PASSWORD')
 def info():
     if request.method == 'POST':
         req = request.get_json()
-        #print(req)
+        print(req)
         # create a global lat variable to be used
         #global lat
         lat = req['lat']
-        print(lat)
-
+        long = req['longitude']
+        print(lat, long)
         worked = "It worked!"
 
     # Return the worked variable as a JSON response
