@@ -1,4 +1,5 @@
 # SportzSuggestion
 
+Want a sport to do now? Use this!
 
-Fun little project
+Created with Flask and the OpenAI + Weatherstack API
